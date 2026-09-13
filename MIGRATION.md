@@ -3,7 +3,7 @@
 This repo is the extracted renderer. Do **not** edit `qga_engine` or
 `inner_cone` from this extract. [`inner_cone`](https://github.com/kinaar8340/inner_cone)
 @ `89a890c` git-pins `qga_engine@7e7866b` + `qga_gpu@b9c9994`.
-[`qga_engine`](https://github.com/kinaar8340/qga_engine) visual tip is `7e7866b`.
+[`qga_engine`](https://github.com/qga-lab/qga_engine) visual tip is `7e7866b`.
 No `v0.1.0` tags. Do not float `main`.
 
 ## Status (Software fact)
@@ -22,9 +22,9 @@ math dep.
 Git consumer (`89a890c`). Not a sibling path:
 
 ```toml
-qga-math = { git = "https://github.com/kinaar8340/qga_engine", rev = "7e7866bb2611d4ab35e6e3c1f46a3f8dd9b4320d" }
-qga-sim  = { git = "https://github.com/kinaar8340/qga_engine", rev = "7e7866bb2611d4ab35e6e3c1f46a3f8dd9b4320d" }
-qga-gpu  = { git = "https://github.com/kinaar8340/qga_gpu", rev = "b9c999406e266a585769a4804c6968de0e6d2237", features = ["capture"] }
+qga-math = { git = "https://github.com/qga-lab/qga_engine", rev = "7e7866bb2611d4ab35e6e3c1f46a3f8dd9b4320d" }
+qga-sim  = { git = "https://github.com/qga-lab/qga_engine", rev = "7e7866bb2611d4ab35e6e3c1f46a3f8dd9b4320d" }
+qga-gpu  = { git = "https://github.com/qga-lab/qga_gpu", rev = "b9c999406e266a585769a4804c6968de0e6d2237", features = ["capture"] }
 ```
 
 `capture` is the right feature set for `--export` / F12. `winit` is this
@@ -50,12 +50,12 @@ reveal — those binaries still do not print `UploadStats`.
 
 ## qga_engine
 
-Published: [`kinaar8340/qga_engine`](https://github.com/kinaar8340/qga_engine)
+Published: [`qga-lab/qga_engine`](https://github.com/qga-lab/qga_engine)
 @ `7e7866b`. In-tree `crates/qga-gpu` is gone. Workspace dep:
 
 ```toml
 # qga_engine/Cargo.toml workspace.dependencies
-qga-gpu = { git = "https://github.com/kinaar8340/qga_gpu", rev = "b9c999406e266a585769a4804c6968de0e6d2237", features = ["winit", "headless", "capture", "glow"] }
+qga-gpu = { git = "https://github.com/qga-lab/qga_gpu", rev = "b9c999406e266a585769a4804c6968de0e6d2237", features = ["winit", "headless", "capture", "glow"] }
 ```
 
 The pin is workspace `rev = "b9c9994"`. `Cargo.lock` is a lockfile, not the

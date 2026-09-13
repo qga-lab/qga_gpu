@@ -7,7 +7,7 @@ version = "0.1.0"
 edition = "2021"
 license = "MIT"
 authors = ["kinaar8340"]
-repository = "https://github.com/kinaar8340/qga_gpu"
+repository = "https://github.com/qga-lab/qga_gpu"
 readme = "README.md"
 
 [workspace.dependencies]

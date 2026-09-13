@@ -2,14 +2,14 @@
 
 # qga-gpu
 
-Spine: [`qga`](https://github.com/kinaar8340/qga) — manuscript + pedagogical Python  
-Shared math: [`flux_hopf_lib`](https://github.com/kinaar8340/flux_hopf_lib)  
-Engine: [`qga_engine`](https://github.com/kinaar8340/qga_engine) (scenes, Rust math) · this repo (frame)  
+Spine: [`qga`](https://github.com/qga-lab/qga) — manuscript + pedagogical Python  
+Shared math: [`flux_hopf_lib`](https://github.com/qga-lab/flux_hopf_lib)  
+Engine: [`qga_engine`](https://github.com/qga-lab/qga_engine) (scenes, Rust math) · this repo (frame)  
 This repo: wgpu/Vulkan frame, pipelines, upload stats. Not world meaning.
 
 wgpu/Vulkan renderer. **This crate owns the frame.** Geometry meaning lives in
-[`qga_engine`](https://github.com/kinaar8340/qga_engine) (`qga-math` / `qga-sim`
-/ `qga-app`) and the manuscript [`qga`](https://github.com/kinaar8340/qga).
+[`qga_engine`](https://github.com/qga-lab/qga_engine) (`qga-math` / `qga-sim`
+/ `qga-app`) and the manuscript [`qga`](https://github.com/qga-lab/qga).
 
 Renderer claims are **Software fact**. Geometry in the public demo is **Model**.
 Binaries print `claims=Software fact` via `qga_gpu::print_claim_banner`.
@@ -17,7 +17,7 @@ Binaries print `claims=Software fact` via `qga_gpu::print_claim_banner`.
 ## Ten minutes
 
 ```bash
-git clone https://github.com/kinaar8340/qga_gpu
+git clone https://github.com/qga-lab/qga_gpu
 cd qga_gpu
 make demo
 ```
@@ -67,10 +67,10 @@ A stranger should pin a published sha, not float `main`. There is no
 `v0.1.0` tag.
 
 ```toml
-qga-gpu = { git = "https://github.com/kinaar8340/qga_gpu", rev = "b9c999406e266a585769a4804c6968de0e6d2237" }
+qga-gpu = { git = "https://github.com/qga-lab/qga_gpu", rev = "b9c999406e266a585769a4804c6968de0e6d2237" }
 ```
 
-[`qga_engine`](https://github.com/kinaar8340/qga_engine) @ `7e7866b`
+[`qga_engine`](https://github.com/qga-lab/qga_engine) @ `7e7866b`
 git-depends with `rev = "b9c9994"` (`features = ["winit", "headless",
 "capture", "glow"]`). `Cargo.lock` is not the pin; the workspace `rev`
 is. [`inner_cone`](https://github.com/kinaar8340/inner_cone) @ `89a890c`
@@ -199,7 +199,7 @@ Software fact. Pin `b9c9994`. Engine visual tip `7e7866b`. No `v0.1.0`.
 |----------|-----|---------------------|
 | stranger / other crate | `qga-gpu = { git = "…/qga_gpu", rev = "b9c9994…" }` | pin that sha; do not float `main`; no tag yet |
 | [`inner_cone`](https://github.com/kinaar8340/inner_cone) @ `89a890c` | git, `qga_engine@7e7866b` + `qga_gpu@b9c9994`, `features = ["capture"]` | git consumer, not a path dep; does not print `UploadStats` |
-| [`qga_engine`](https://github.com/kinaar8340/qga_engine) @ `7e7866b` | git, `rev = "b9c9994"`; `features = ["winit", "headless", "capture", "glow"]` | do not PR a pin bump from this extract |
+| [`qga_engine`](https://github.com/qga-lab/qga_engine) @ `7e7866b` | git, `rev = "b9c9994"`; `features = ["winit", "headless", "capture", "glow"]` | do not PR a pin bump from this extract |
 
 `capture` is the right feature set for `inner_cone --export`. Record layout
 changes here cannot silently land in published consumers: they pin this sha,
@@ -328,8 +328,8 @@ Software fact:
 
 | Repo | Role |
 |------|------|
-| [`qga_engine`](https://github.com/kinaar8340/qga_engine) | Scenes, math, sim. Pin this crate by git rev (`b9c9994`), never `main`. No `v0.1.0`. |
-| [`qga`](https://github.com/kinaar8340/qga) | Manuscript + pedagogical Python |
+| [`qga_engine`](https://github.com/qga-lab/qga_engine) | Scenes, math, sim. Pin this crate by git rev (`b9c9994`), never `main`. No `v0.1.0`. |
+| [`qga`](https://github.com/qga-lab/qga) | Manuscript + pedagogical Python |
 | [`inner_cone`](https://github.com/kinaar8340/inner_cone) | Sculpture viewer (Model). Git-pins `qga_engine@7e7866b` + this sha. |
 
 ## What this crate is not

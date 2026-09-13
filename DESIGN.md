@@ -1,11 +1,11 @@
 # qga-gpu — design
 
 A standalone wgpu/Vulkan renderer. **This crate owns the frame.** Geometry
-meaning lives in [`qga_engine`](https://github.com/kinaar8340/qga_engine)
+meaning lives in [`qga_engine`](https://github.com/qga-lab/qga_engine)
 (`qga-math` / `qga-sim` / `qga-app`). Renderer claims are **Software fact**.
 
 This is not the QGA engine, not a fantasy realm, and not a solar-nebula sim.
-Those scenes stay in [`qga_engine`](https://github.com/kinaar8340/qga_engine)
+Those scenes stay in [`qga_engine`](https://github.com/qga-lab/qga_engine)
 (`main` @ `cd5081a`) and `inner_cone`. This crate is the upload path and the
 swapchain.
 
@@ -35,7 +35,7 @@ WGSL lives in-tree under `crates/qga-gpu/src/shaders/`. No runtime Python.
 | Quaternions, Hopf, Hurwitz, topographs | `qga` / `qga-math` | not imported (optional `qga-math` feature) |
 | Tube look, bloom, void | `flux_hopf_explorer` via engine WGSL | `src/shaders` |
 | Static lattice once, live harmonics per frame | `inner_cone` engine tick | `Renderer` upload API |
-| Realm / cosmos / OAM / reveal | [`qga_engine`](https://github.com/kinaar8340/qga_engine) `qga-app` (`docs/SCENES.md`) | **not copied** |
+| Realm / cosmos / OAM / reveal | [`qga_engine`](https://github.com/qga-lab/qga_engine) `qga-app` (`docs/SCENES.md`) | **not copied** |
 
 Python is an authoring language in the ecosystem. The frame loop is Rust +
 Vulkan. Do not `sys.path` into sibling repos.
@@ -1172,7 +1172,7 @@ the strategy you want.
 
 Consumer wiring: [MIGRATION.md](MIGRATION.md). `inner_cone` @ `89a890c`
 git-pins `qga_engine@7e7866b` + `qga_gpu@b9c9994` (`features = ["capture"]`).
-[`qga_engine`](https://github.com/kinaar8340/qga_engine) @ `7e7866b` git-depends
+[`qga_engine`](https://github.com/qga-lab/qga_engine) @ `7e7866b` git-depends
 with `rev = "b9c9994"` (`Cargo.lock` is not the pin). No `v0.1.0`. Do not
 enable `qga-math` on this crate for those callers.
 
